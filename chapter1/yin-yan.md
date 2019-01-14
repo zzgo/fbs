@@ -280,10 +280,9 @@ public interface IBaseService<T> {
 
     T update(T t);
 }
-
 ```
 
- IUserService.java
+IUserService.java
 
 ```
 package com.zachary.demo.service;
@@ -299,7 +298,6 @@ import com.zachary.demo.entity.User;
 public interface IUserService extends IBaseService<User> {
 
 }
-
 ```
 
 **创建fbs-demo-service-provider**
@@ -444,7 +442,6 @@ pom文件
         </pluginManagement>
     </build>
 </project>
-
 ```
 
 项目结构
@@ -463,12 +460,12 @@ applicationContext.xml
        xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context
-		http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/tx
-		http://www.springframework.org/schema/tx/spring-tx.xsd
-		http://www.springframework.org/schema/data/jpa
-   		http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa
+           http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
     <!--导入config文件 使用 context:property-placeholder  -->
     <context:property-placeholder location="classpath:config.properties"/>
     <!--引入dubbo.xml 文件-->
@@ -513,7 +510,7 @@ applicationContext.xml
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
-    
+
     <!--支持事务注解-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
@@ -644,7 +641,6 @@ public class UserService implements IUserService {
         return null;
     }
 }
-
 ```
 
 UserDao.java
@@ -657,7 +653,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserDao extends JpaRepository<User, Integer>, UserDaoCustom {
 }
-
 ```
 
 UserDaoCustom.java
@@ -670,7 +665,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserDaoCustom {
 }
-
 ```
 
 UserDaoImpl.java
@@ -693,7 +687,6 @@ public class UserDaoImpl implements UserDaoCustom {
     @PersistenceContext
     private EntityManager entityManager;
 }
-
 ```
 
 手动启动Main.java
@@ -734,7 +727,6 @@ public class Main {
         }
     }
 }
-
 ```
 
 
